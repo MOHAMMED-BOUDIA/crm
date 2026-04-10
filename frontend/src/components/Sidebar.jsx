@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Users, Target, Handshake,
-  Plus, HelpCircle, ChevronRight, CheckSquare, Settings
+  Plus, HelpCircle, ChevronRight, CheckSquare, Settings, LogOut
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { useUI } from '../context/UIContext';
 import Logo from './Logo';
 import { Button } from './ui/Button';
 import SupportModal from './modals/SupportModal';
@@ -18,7 +21,16 @@ const NAV_ITEMS = [
 ];
 
 export default function Sidebar() {
+  const { logout } = useAuth();
+  const { addToast } = useUI();
+  const navigate = useNavigate();
   const [supportOpen, setSupportOpen] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+    addToast('Successfully signed out.', 'info');
+  };
 
   return (
     <>
@@ -84,6 +96,19 @@ export default function Sidebar() {
               Open Center
             </Button>
           </div>
+        </div>
+
+        {/* Logout */}
+        <div className="px-5 mb-8">
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-rose-500 hover:bg-rose-500/10 transition-all duration-200 group font-bold text-[14px]"
+          >
+            <div className="p-1.5 rounded-xl bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors">
+              <LogOut size={18} strokeWidth={2.5} />
+            </div>
+            <span>Sign Out</span>
+          </button>
         </div>
 
       </aside>

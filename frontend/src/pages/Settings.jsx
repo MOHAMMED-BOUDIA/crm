@@ -11,7 +11,7 @@ const Settings = () => {
   const { addToast } = useUI();
   const { user } = useAuth();
   const fileInputRef = useRef(null);
-  
+
   const [profile, setProfile] = useState({
     fullName: user?.name || 'Alexander Sterling',
     role: 'Enterprise Admin',
@@ -29,8 +29,8 @@ const Settings = () => {
   const [savingProfile, setSavingProfile] = useState(false);
   const [savingCompany, setSavingCompany] = useState(false);
   const [passModalOpen, setPassModalOpen] = useState(false);
-  const [passLoading,   setPassLoading]   = useState(false);
-  const [passData,      setPassData]      = useState({ current: '', new: '', confirm: '' });
+  const [passLoading, setPassLoading] = useState(false);
+  const [passData, setPassData] = useState({ current: '', new: '', confirm: '' });
 
   const handleSaveProfile = async () => {
     setSavingProfile(true);
@@ -100,7 +100,7 @@ const Settings = () => {
             This information will be displayed to your teammates and clients during interactions.
           </p>
         </div>
-        
+
         <div className="lg:col-span-2 relative group">
           <div className="absolute -inset-0.5 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
           <div className="relative bg-white/70 backdrop-blur-2xl rounded-[2.5rem] p-10 border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
@@ -130,21 +130,21 @@ const Settings = () => {
               <div className="space-y-2 relative group/input">
                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Full Name</label>
                 <div className="relative">
-                  <input type="text" value={profile.fullName} onChange={e => setProfile({...profile, fullName: e.target.value})} className={INPUT_CLS} />
+                  <input type="text" value={profile.fullName} onChange={e => setProfile({ ...profile, fullName: e.target.value })} className={INPUT_CLS} />
                   <User size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/input:text-blue-500 transition-colors pointer-events-none" />
                 </div>
               </div>
               <div className="space-y-2 relative group/input">
                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Role</label>
                 <div className="relative">
-                  <input type="text" value={profile.role} onChange={e => setProfile({...profile, role: e.target.value})} className={INPUT_CLS} />
+                  <input type="text" value={profile.role} onChange={e => setProfile({ ...profile, role: e.target.value })} className={INPUT_CLS} />
                   <Briefcase size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/input:text-blue-500 transition-colors pointer-events-none" />
                 </div>
               </div>
               <div className="md:col-span-2 space-y-2 relative group/input">
                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Email Address</label>
                 <div className="relative">
-                  <input type="email" value={profile.email} onChange={e => setProfile({...profile, email: e.target.value})} className={INPUT_CLS} />
+                  <input type="email" value={profile.email} onChange={e => setProfile({ ...profile, email: e.target.value })} className={INPUT_CLS} />
                   <Mail size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/input:text-blue-500 transition-colors pointer-events-none" />
                 </div>
               </div>
@@ -169,7 +169,7 @@ const Settings = () => {
             Configure your organization's global identity and regional preferences.
           </p>
         </div>
-        
+
         <div className="lg:col-span-2 relative group mb-12">
           <div className="absolute -inset-0.5 bg-gradient-to-bl from-indigo-500/20 to-purple-500/20 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
           <div className="relative bg-white/70 backdrop-blur-2xl rounded-[2.5rem] p-10 border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
@@ -177,14 +177,14 @@ const Settings = () => {
               <div className="md:col-span-2 space-y-2 relative group/input">
                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Company Name</label>
                 <div className="relative">
-                  <input type="text" value={company.name} onChange={e => setCompany({...company, name: e.target.value})} className={INPUT_CLS} />
+                  <input type="text" value={company.name} onChange={e => setCompany({ ...company, name: e.target.value })} className={INPUT_CLS} />
                   <Globe size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/input:text-blue-500 transition-colors pointer-events-none" />
                 </div>
               </div>
               <div className="space-y-2 relative group/input">
                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Timezone</label>
                 <div className="relative">
-                  <select className={`${INPUT_CLS} appearance-none cursor-pointer`} value={company.timezone} onChange={e => setCompany({...company, timezone: e.target.value})}>
+                  <select className={`${INPUT_CLS} appearance-none cursor-pointer`} value={company.timezone} onChange={e => setCompany({ ...company, timezone: e.target.value })}>
                     <option>{company.timezone}</option>
                     <option>(GMT+00:00) UTC</option>
                   </select>
@@ -194,7 +194,7 @@ const Settings = () => {
               <div className="space-y-2 relative group/input">
                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Default Currency</label>
                 <div className="relative">
-                  <select className={`${INPUT_CLS} appearance-none cursor-pointer`} value={company.currency} onChange={e => setCompany({...company, currency: e.target.value})}>
+                  <select className={`${INPUT_CLS} appearance-none cursor-pointer`} value={company.currency} onChange={e => setCompany({ ...company, currency: e.target.value })}>
                     <option>{company.currency}</option>
                     <option>USD - US Dollar</option>
                     <option>EUR - Euro</option>
@@ -217,7 +217,7 @@ const Settings = () => {
       {passModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
           <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity" onClick={() => !passLoading && setPassModalOpen(false)} />
-          
+
           <div className="relative bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in duration-300 border border-slate-100">
             <div className="px-8 pt-8 pb-6 text-center">
               <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -230,50 +230,50 @@ const Settings = () => {
             <form onSubmit={submitPasswordChange} className="px-8 pb-8 space-y-5">
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Current Password</label>
-                <input 
-                  type="password" 
+                <input
+                  type="password"
                   required
                   value={passData.current}
-                  onChange={e => setPassData({...passData, current: e.target.value})}
-                  className={INPUT_CLS + " bg-slate-50/50"} 
+                  onChange={e => setPassData({ ...passData, current: e.target.value })}
+                  className={INPUT_CLS + " bg-slate-50/50"}
                   placeholder="••••••••"
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">New Password</label>
-                <input 
-                  type="password" 
+                <input
+                  type="password"
                   required
                   value={passData.new}
-                  onChange={e => setPassData({...passData, new: e.target.value})}
-                  className={INPUT_CLS + " bg-slate-50/50"} 
+                  onChange={e => setPassData({ ...passData, new: e.target.value })}
+                  className={INPUT_CLS + " bg-slate-50/50"}
                   placeholder="••••••••"
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Confirm New Password</label>
-                <input 
-                  type="password" 
+                <input
+                  type="password"
                   required
                   value={passData.confirm}
-                  onChange={e => setPassData({...passData, confirm: e.target.value})}
-                  className={INPUT_CLS + " bg-slate-50/50"} 
+                  onChange={e => setPassData({ ...passData, confirm: e.target.value })}
+                  className={INPUT_CLS + " bg-slate-50/50"}
                   placeholder="••••••••"
                 />
               </div>
 
               <div className="flex gap-3 pt-4">
-                <Button 
-                  variant="secondary" 
-                  fullWidth 
+                <Button
+                  variant="secondary"
+                  fullWidth
                   onClick={() => setPassModalOpen(false)}
                   disabled={passLoading}
                 >
                   Cancel
                 </Button>
-                <Button 
+                <Button
                   type="submit"
-                  variant="primary" 
+                  variant="primary"
                   fullWidth
                   loading={passLoading}
                 >
