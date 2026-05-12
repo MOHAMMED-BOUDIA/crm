@@ -4,13 +4,13 @@ import { UIProvider }  from './context/UIContext';
 import ToastContainer  from './components/ui/Toast';
 import ProtectedRoute  from './components/ProtectedRoute';
 
-import Login     from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Customers from './pages/Customers';
-import Leads     from './pages/Leads';
-import Tasks     from './pages/Tasks';
-import Deals     from './pages/Deals';
-import Settings  from './pages/Settings';
+import Login     from './context/pages/Login';
+import Dashboard from './context/pages/Dashboard';
+import Customers from './context/pages/Customers';
+import Leads     from './context/pages/Leads';
+import Tasks     from './context/pages/Tasks';
+import Deals     from './context/pages/Deals';
+import Settings  from './context/pages/Settings';
 
 export default function App() {
   return (
